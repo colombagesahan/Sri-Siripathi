@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sri Siripathi Furnishers - Quality Furniture for Generations</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50; /* Dark Blue */
+            --secondary-color: #e67e22; /* Orange */
+            --accent-color: #27ae60; /* Green */
+            --text-color: #333;
+            --light-bg: #f8f8f8;
+            --white: #ffffff;
+            --gray-border: #ddd;
+            --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 0.9em;
+        }
+
+        .contact-info a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 15px;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #34495e; /* Slightly lighter primary */
+            padding: 10px 0;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-list li {
+            margin: 0 15px;
+        }
+
+        .nav-list a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bac.png') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #e06e1b;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .section p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* About Us Section */
+        .about-us {
+            background-color: var(--white);
+            text-align: left;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-text h4 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .about-text p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            max-width: none; /* Override section p max-width */
+        }
+
+        /* Features Section (New) */
+        .features {
+            background-color: #ecf0f1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 3em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .feature-item h4 {
+            font-size: 1.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 0;
+            max-width: none; /* Override section p max-width */
+        }
+
+
+        /* Why Choose Us */
+        .why-choose-us .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .why-item {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            width: calc(33% - 20px);
+            min-width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .why-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .why-item i {
+            font-size: 2.5em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .why-item h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Product Showcase */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .product-info p {
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .product-actions .btn {
+            flex: 1;
+            padding: 10px 15px;
+            font-size: 0.9em;
+            text-align: center;
+        }
+
+        .product-actions .btn-whatsapp {
+            background-color: #25d366; /* WhatsApp Green */
+        }
+
+        .product-actions .btn-whatsapp:hover {
+            background-color: #1da851;
+        }
+
+        /* Testimonials/Reviews */
+        .testimonials {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            overflow-x: hidden; /* Hide scrollbar but allow JS scroll */
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+            position: relative; /* For navigation buttons */
+        }
+
+        .testimonial-carousel::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .testimonial-card {
+            flex: 0 0 100%; /* Each card takes full width */
+            scroll-snap-align: start;
+            background-color: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto; /* Center single card */
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .testimonial-card span {
+            font-weight: 600;
+        }
+
+        .google-reviews-link {
+            margin-top: 30px;
+        }
+        .google-reviews-link a {
+            color: var(--secondary-color);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+        .google-reviews-link a:hover {
+            color: var(--white);
+        }
+
+        /* Carousel Navigation Buttons */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 10px;
+        }
+
+        .carousel-nav button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-nav button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--gray-border);
+            border-radius: 5px;
+            font-family: var(--font-family);
+            font-size: 1em;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form .btn {
+            width: auto;
+            background-color: var(--accent-color);
+        }
+
+        .contact-form .btn:hover {
+            background-color: #209952;
+        }
+
+        .contact-info-block h4 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .contact-info-block p {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .contact-info-block a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .contact-info-block a:hover {
+            text-decoration: underline;
+        }
+
+        #map-container {
+            height: 300px;
+            width: 100%;
+            border: 1px solid var(--gray-border);
+            border-radius: 5px;
+            margin-top: 20px;
+            overflow: hidden; /* Ensure iframe fits */
+        }
+        #map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+        }
+
+        .whatsapp-float i {
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                margin-top: 10px;
+            }
+            .contact-info a {
+                display: block;
+                margin: 5px 0;
+            }
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-list li {
+                margin: 10px 0;
+            }
+            .hero h2 {
+                font-size: 2.5em;
+            }
+            .hero p {
+                font-size: 1.2em;
+            }
+            .why-item {
+                width: 100%;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-info-block {
+                margin-top: 40px;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .about-text, .about-image {
+                min-width: unset;
+                width: 100%;
+            }
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logo.png" alt="Sri Siripathi Furnishers Logo">
+                <h1>Sri Siripathi Furnishers</h1>
+            </div>
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> 0112 653131 | 0777 802 888</span>
+                <a href="mailto:menanfer@gmail.com"><i class="fas fa-envelope"></i> menanfer@gmail.com</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#why-choose-us">Why Choose Us</a></li>
+                <li><a href="#features">Our Strengths</a></li> <!-- New nav link -->
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h2>Crafted for Generations</h2>
+                <p>Sri Lanka's Leading Furniture Since 1970</p>
+                <a href="#products" class="btn">Explore Collections</a>
+            </div>
+        </section>
+
+        <section id="about" class="section about-us">
+            <div class="container">
+                <h3>Our Legacy of Excellence</h3>
+                <p>For over five decades, Sri Siripathi Furnishers has been synonymous with quality, durability, and exquisite design in Sri Lankan furniture.</p>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="shop.png" alt="Our Furniture Workshop">
+                    </div>
+                    <div class="about-text">
+                        <h4>A Tradition of Fine Furniture Making</h4>
+                        <p>Established in 1970 by visionary craftsmen, Sri Siripathi Furnishers began with a simple mission: to create furniture that lasts a lifetime. We believe that furniture is not just an object, but a part of your family's story, witnessing countless memories and standing the test of time.</p>
+                        <p>Our commitment to using premium, ethically sourced timber, combined with the unparalleled skill of our local artisans, ensures that every piece we create is a masterpiece. From classic designs that echo Sri Lanka's rich heritage to modern, minimalist styles, we cater to diverse tastes while upholding our core values of quality and integrity.</p>
+                        <p>Under the stewardship of Menan Fernando, we continue to innovate and expand our offerings, always prioritizing customer satisfaction and the timeless beauty of well-made furniture. Discover the difference that true craftsmanship makes.</p>
+                        <a href="#contact" class="btn">Get a Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-choose-us" class="section why-choose-us">
+            <div class="container">
+                <h3>Why Choose Us?</h3>
+                <p>At Sri Siripathi Furnishers, we blend timeless craftsmanship with modern design to create furniture that truly transforms your home.</p>
+
+                <div class="container">
+                    <div class="why-item">
+                        <i class="fas fa-hammer"></i>
+                        <h4>Unrivaled Sri Lankan Craftsmanship</h4>
+                        <p>Each piece is meticulously handcrafted by skilled artisans, blending traditional techniques with contemporary designs.</p>
+                    </div>
+                    <div class="why-item">
+                        <i class="fas fa-leaf"></i>
+                        <h4>Quality Materials, Ethically Sourced</h4>
+                        <p>We use only the finest, sustainably sourced timber and materials, ensuring durability and an environmentally responsible approach.</p>
+                    </div>
+                    <div class="why-item">
+                        <i class="fas fa-palette"></i>
+                        <h4>Customization to Your Vision</h4>
+                        <p>We offer personalized design consultations and customization options to bring your specific vision to life, complementing your space and style.</p>
+                    </div>
+                    <div class="why-item">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Customer-Centric Service</h4>
+                        <p>Our dedicated team, led by Menan Fernando, is committed to providing unparalleled support from inquiry to post-delivery.</p>
+                    </div>
+                    <div class="why-item">
+                        <i class="fas fa-tags"></i>
+                        <h4>Competitive Pricing</h4>
+                        <p>Premium furniture at competitive prices, providing exceptional value for your investment without compromising on quality.</p>
+                    </div>
+                    <div class="why-item">
+                        <i class="fas fa-award"></i>
+                        <h4>Trusted by Generations</h4>
+                        <p>With decades of experience and a loyal customer base, our reputation speaks for itself. Join our satisfied customers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Features Section -->
+        <section id="features" class="section features">
+            <div class="container">
+                <h3>Our Strengths & Values</h3>
+                <p>We are passionate about creating more than just furniture; we create heirlooms that enhance your living spaces.</p>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-tree"></i>
+                        <h4>Sustainable Sourcing</h4>
+                        <p>We prioritize responsible forestry, ensuring our beautiful timber is sourced sustainably and ethically.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-heartbeat"></i>
+                        <h4>Durability Guaranteed</h4>
+                        <p>Built to last, our furniture undergoes rigorous quality checks to ensure it withstands daily life for decades.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h4>Innovative Designs</h4>
+                        <p>Blending classic elegance with contemporary trends, our designs offer both timeless beauty and modern functionality.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-medal"></i>
+                        <h4>Expert Consultation</h4>
+                        <p>Our knowledgeable team provides expert advice to help you choose or customize the perfect furniture for your home.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="section products">
+            <div class="container">
+                <h3>Our Products</h3>
+                <p>Discover our exquisite range of furniture crafted for every room in your home. Each piece tells a story of elegance and durability.</p>
+
+                <div class="product-grid">
+                    <!-- Product Card 1 -->
+                    <div class="product-card">
+                        <img src="1.png" alt="Elegant Teak Dining Set">
+                        <div class="product-info">
+                            <h4>Elegant Teak Dining Set</h4>
+                            <p>Crafted from solid Sri Lankan teak, perfect for family gatherings. Seats 6-8.</p>
+                            <p><strong>Rs. 450,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Elegant Teak Dining Set" data-price="450000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Elegant%20Teak%20Dining%20Set" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="product-card">
+                        <img src="2.png" alt="Classic Mahogany Bedframe">
+                        <div class="product-info">
+                            <h4>Classic Mahogany Bedframe</h4>
+                            <p>A timeless design, hand-carved from rich mahogany. Available in King/Queen.</p>
+                            <p><strong>Rs. 280,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Classic Mahogany Bedframe" data-price="280000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Classic%20Mahogany%20Bedframe" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="product-card">
+                        <img src="3.png" alt="Luxury Sofa Set">
+                        <div class="product-info">
+                            <h4>Luxury Living Room Sofa Set</h4>
+                            <p>Comfortable and stylish, with durable upholstery. 3+2+1 configuration.</p>
+                            <p><strong>Rs. 320,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Luxury Living Room Sofa Set" data-price="320000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Luxury%20Living%20Room%20Sofa%20Set" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="product-card">
+                        <img src="4.png" alt="Hand-carved Coffee Table">
+                        <div class="product-info">
+                            <h4>Hand-carved Coffee Table</h4>
+                            <p>Intricately designed center piece for your living space, made from local wood.</p>
+                            <p><strong>Rs. 95,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Hand-carved Coffee Table" data-price="95000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Hand-carved%20Coffee%20Table" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 5 -->
+                    <div class="product-card">
+                        <img src="5.png" alt="Modern Bookshelf">
+                        <div class="product-info">
+                            <h4>Contemporary Bookshelf Unit</h4>
+                            <p>Sleek design with ample storage for your literary collection and decor.</p>
+                            <p><strong>Rs. 180,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Contemporary Bookshelf Unit" data-price="180000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Contemporary%20Bookshelf%20Unit" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 6 -->
+                    <div class="product-card">
+                        <img src="6.png" alt="Custom Wardrobe">
+                        <div class="product-info">
+                            <h4>Spacious Custom Wardrobe</h4>
+                            <p>Tailored to your needs, featuring multiple compartments and finishes.</p>
+                            <p><strong>Rs. 350,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Spacious Custom Wardrobe" data-price="350000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Spacious%20Custom%20Wardrobe" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Product Card 7 -->
+                     <div class="product-card">
+                        <img src="7.png" alt="Work Desk">
+                        <div class="product-info">
+                            <h4>Executive Work Desk</h4>
+                            <p>Ergonomically designed for comfort and productivity in your home office.</p>
+                            <p><strong>Rs. 120,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Executive Work Desk" data-price="120000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Executive%20Work%20Desk" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 8 -->
+                    <div class="product-card">
+                        <img src="8.png" alt="Accent Chair">
+                        <div class="product-info">
+                            <h4>Stylish Accent Chair</h4>
+                            <p>Add a touch of elegance to any room with this comfortable and chic chair.</p>
+                            <p><strong>Rs. 75,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Stylish Accent Chair" data-price="75000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Stylish%20Accent%20Chair" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 9 -->
+                    <div class="product-card">
+                        <img src="9.png" alt="Outdoor Bench">
+                        <div class="product-info">
+                            <h4>Durable Outdoor Bench</h4>
+                            <p>Weather-resistant and beautifully designed for your garden or patio.</p>
+                            <p><strong>Rs. 60,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Durable Outdoor Bench" data-price="60000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Durable%20Outdoor%20Bench" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 10 -->
+                    <div class="product-card">
+                        <img src="10.png" alt="Display Cabinet">
+                        <div class="product-info">
+                            <h4>Glass Display Cabinet</h4>
+                            <p>Showcase your cherished collectibles with this elegant glass and wood cabinet.</p>
+                            <p><strong>Rs. 190,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Glass Display Cabinet" data-price="190000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Glass%20Display%20Cabinet" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 11 -->
+                    <div class="product-card">
+                        <img src="11.png" alt="Children's Bed">
+                        <div class="product-info">
+                            <h4>Solid Wood Children's Bed</h4>
+                            <p>Safe and sturdy bedframe designed for your little ones, built to last.</p>
+                            <p><strong>Rs. 150,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Solid Wood Children's Bed" data-price="150000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Solid%20Wood%20Children%20Bed" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product Card 12 -->
+                    <div class="product-card">
+                        <img src="12.png" alt="Hallway Console">
+                        <div class="product-info">
+                            <h4>Elegant Hallway Console Table</h4>
+                            <p>A sophisticated addition to your entryway, perfect for keys and decor.</p>
+                            <p><strong>Rs. 85,000</strong></p>
+                            <div class="product-actions">
+                                <button class="btn add-to-cart" data-product="Elegant Hallway Console Table" data-price="85000">Add to Cart</button>
+                                <a href="https://wa.me/94777802888?text=I'm%20interested%20in%20your%20Elegant%20Hallway%20Console%20Table" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="section testimonials">
+            <div class="container" style="position: relative;">
+                <h3>What Our Customers Say</h3>
+                <p>Hear directly from those who have experienced the Sri Siripathi difference. Their satisfaction is our greatest reward.</p>
+                <div class="testimonial-carousel">
+                    <div class="testimonial-card">
+                        <p>"Absolutely stunning furniture! The quality is exceptional, and the customer service was fantastic from start to finish. Highly recommend Sri Siripathi Furnishers."</p>
+                        <span>- Imali P. (Colombo)</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"We bought our entire living room set from here. The craftsmanship is beautiful, and the pieces feel incredibly solid. A true investment for our home."</p>
+                        <span>- Tharindu K. (Kandy)</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"Menan Fernando and his team truly understand quality. Every detail is perfect. Our new dining table is the highlight of our home!"</p>
+                        <span>- N. Perera (Galle)</span>
+                    </div>
+                    <div class="testimonial-card">
+                        <p>"From design consultation to delivery, the process was seamless. The custom bedroom set they made for us exceeds all expectations. Thank you!"</p>
+                        <span>- S. Wijesinghe (Negombo)</span>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button id="prevReview"><i class="fas fa-chevron-left"></i></button>
+                    <button id="nextReview"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="google-reviews-link">
+                    <p>Read all our authentic customer experiences on <a href="https://www.google.com/search?q=Sri+Siripathi+Furniture+Reviews" target="_blank">Google <i class="fab fa-google"></i></a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <h3>Connect With Us</h3>
+                <p>Have a question, need a custom quote, or want to discuss your furniture needs? We're here to help you every step of the way.</p>
+
+                <div class="contact-grid">
+                    <div class="contact-form">
+                        <h4>Send us a Message Directly</h4>
+                        <form id="contactForm">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <label for="phone">Your Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+
+                            <label for="message">Your Message or Inquiry</label>
+                            <textarea id="message" name="message" required></textarea>
+
+                            <button type="submit" class="btn">Send Message via WhatsApp</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info-block">
+                        <h4>Find Us & Get in Touch</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <strong>Visit Our Showroom:</strong> 228, De Soysa Road, Moratumulla, Moratuwa, Sri Lanka</p>
+                        <p><i class="fas fa-phone"></i> <strong>Call Us:</strong> <a href="tel:+94112653131">0112 653131</a> | <a href="tel:+94777802888">0777 802 888</a></p>
+                        <p><i class="fas fa-envelope"></i> <strong>Email Us:</strong> <a href="mailto:menanfer@gmail.com">menanfer@gmail.com</a></p>
+                        <p><i class="fas fa-clock"></i> <strong>Business Hours:</strong> Monday - Saturday: 9:00 AM - 6:00 PM</p>
+
+                        <div id="map-container">
+                            <!-- Google Map embed without API key, using direct embed URL -->
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.948270178496!2d79.88241437500366!3d6.786503993206263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae245b0a316c141%3A0x6a2c914041a7d6e!2sSri%20Siripathi%20Furnishers!5e0!3m2!1sen!2slk!4v1700000000000!5m2!1sen!2slk" 
+                                allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p style="color: var(--secondary-color);">&copy; <span id="currentYear"></span> Sri Siripathi Furnishers. All rights reserved. | Proprietor: Menan Fernando</p>
+            <p>Development and Maintenance by 
+             Sahan Colombage - 070 315 0742</p>
+        </div>
+    </footer> 
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/94777802888" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Cart Pop-up/Sidebar (simple version) -->
+    <div id="cart-sidebar" style="position: fixed; top: 0; right: -350px; width: 300px; height: 100%; background-color: var(--white); box-shadow: -2px 0 10px rgba(0,0,0,0.2); z-index: 1001; padding: 20px; transition: right 0.3s ease;">
+        <h3>Your Cart (<span id="cart-count">0</span>)</h3>
+        <div id="cart-items">
+            <p>No items in cart.</p>
+        </div>
+        <hr style="margin: 20px 0;">
+        <p><strong>Total: Rs. <span id="cart-total">0</span></strong></p>
+        <button id="checkout-whatsapp" class="btn btn-whatsapp" style="width: 100%; margin-top: 20px;"><i class="fab fa-whatsapp"></i> Order via WhatsApp</button>
+        <button id="close-cart" class="btn" style="width: 100%; background-color: var(--gray-border); color: var(--text-color); margin-top: 10px;">Close Cart</button>
+    </div>
+
+    <button id="open-cart-btn" style="position: fixed; bottom: 100px; right: 30px; width: 60px; height: 60px; background-color: var(--primary-color); color: var(--white); border: none; border-radius: 50%; font-size: 25px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 999; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-indicator" style="position: absolute; top: -5px; right: -5px; background-color: red; color: white; border-radius: 50%; padding: 2px 7px; font-size: 12px; display: none;">0</span>
+    </button>
+
+
+    <script>
+        // Update current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Contact Form to WhatsApp
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            const whatsappMessage = `Hello Sri Siripathi Furnishers,
+I have an inquiry:
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Message: ${message}`;
+
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappURL = `https://wa.me/94777802888?text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank');
+
+            // Optionally clear the form
+            this.reset();
+            alert('Your message is ready to be sent via WhatsApp!');
+        });
+
+
+        // Simple Cart Functionality
+        let cart = [];
+
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const openCartBtn = document.getElementById('open-cart-btn');
+        const closeCartBtn = document.getElementById('close-cart');
+        const cartCountSpan = document.getElementById('cart-count');
+        const cartIndicatorSpan = document.getElementById('cart-indicator');
+        const cartItemsDiv = document.getElementById('cart-items');
+        const cartTotalSpan = document.getElementById('cart-total');
+        const checkoutWhatsappBtn = document.getElementById('checkout-whatsapp');
+
+        function updateCartDisplay() {
+            cartCountSpan.textContent = cart.length;
+            cartIndicatorSpan.textContent = cart.length;
+            cartIndicatorSpan.style.display = cart.length > 0 ? 'block' : 'none';
+
+            cartItemsDiv.innerHTML = '';
+            let total = 0;
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p>No items in cart.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.classList.add('cart-item');
+                    itemDiv.innerHTML = `
+                        <p>${item.product} - Rs. ${item.price.toLocaleString()}</p>
+                        <button class="btn" style="background-color: #e74c3c; padding: 5px 10px; font-size: 0.8em;" onclick="removeFromCart(${index})">Remove</button>
+                    `;
+                    cartItemsDiv.appendChild(itemDiv);
+                    total += item.price;
+                });
+            }
+            cartTotalSpan.textContent = total.toLocaleString();
+        }
+
+        function addToCart(product, price) {
+            cart.push({ product, price });
+            updateCartDisplay();
+            openCartBtn.click(); // Open cart automatically
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartDisplay();
+        }
+
+        // Add to Cart button event listeners
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const product = this.dataset.product;
+                const price = parseFloat(this.dataset.price);
+                addToCart(product, price);
+            });
+        });
+
+        // Open/Close Cart Sidebar
+        openCartBtn.addEventListener('click', () => {
+            cartSidebar.style.right = '0';
+        });
+
+        closeCartBtn.addEventListener('click', () => {
+            cartSidebar.style.right = '-350px';
+        });
+
+        // Checkout via WhatsApp from Cart
+        checkoutWhatsappBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add some products before ordering.');
+                return;
+            }
+
+            let orderSummary = "Hello Sri Siripathi Furnishers, I'd like to order the following:\n\n";
+            let total = 0;
+
+            cart.forEach(item => {
+                orderSummary += `- ${item.product} (Rs. ${item.price.toLocaleString()})\n`;
+                total += item.price;
+            });
+
+            orderSummary += `\nTotal Estimated Cost: Rs. ${total.toLocaleString()}\n\nPlease confirm availability and details. Thank you!`;
+
+            const encodedMessage = encodeURIComponent(orderSummary);
+            const whatsappURL = `https://wa.me/94777802888?text=${encodedMessage}`;
+            window.open(whatsappURL, '_blank');
+
+            alert('Your order summary is ready to be sent via WhatsApp!');
+            cart = []; // Clear cart after initiating order
+            updateCartDisplay();
+            cartSidebar.style.right = '-350px'; // Close cart sidebar
+        });
+
+        updateCartDisplay(); // Initial display of cart
+
+
+        // Testimonial Carousel Logic
+        const testimonialCarousel = document.querySelector('.testimonial-carousel');
+        const prevReviewBtn = document.getElementById('prevReview');
+        const nextReviewBtn = document.getElementById('nextReview');
+        let currentReviewIndex = 0;
+        let autoSlideInterval;
+
+        function showReview(index) {
+            const reviewWidth = testimonialCarousel.children[0].offsetWidth + (parseFloat(getComputedStyle(testimonialCarousel.children[0]).marginLeft) * 2); // Calculate width including margins if any
+            testimonialCarousel.scrollLeft = reviewWidth * index;
+        }
+
+        function nextReview() {
+            currentReviewIndex = (currentReviewIndex < testimonialCarousel.children.length - 1) ? currentReviewIndex + 1 : 0;
+            showReview(currentReviewIndex);
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextReview, 5000); // Change review every 5 seconds
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        prevReviewBtn.addEventListener('click', () => {
+            stopAutoSlide(); // Stop auto-slide on manual interaction
+            currentReviewIndex = (currentReviewIndex > 0) ? currentReviewIndex - 1 : testimonialCarousel.children.length - 1;
+            showReview(currentReviewIndex);
+            startAutoSlide(); // Restart auto-slide
+        });
+
+        nextReviewBtn.addEventListener('click', () => {
+            stopAutoSlide(); // Stop auto-slide on manual interaction
+            nextReview();
+            startAutoSlide(); // Restart auto-slide
+        });
+
+        // Start auto-slide when the page loads
+        startAutoSlide();
+
+        // Optional: Pause auto-slide when hovering over the carousel
+        testimonialCarousel.addEventListener('mouseenter', stopAutoSlide);
+        testimonialCarousel.addEventListener('mouseleave', startAutoSlide);
+
+        // Adjust scroll position on resize to keep current review centered
+        window.addEventListener('resize', () => {
+            showReview(currentReviewIndex);
+        });
+
+    </script>
+
+</body>
+</html>
