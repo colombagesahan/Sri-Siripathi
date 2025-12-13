@@ -34,30 +34,29 @@
         .contact-info a:hover { text-decoration: underline; }
 
         /* Navigation */
-        nav { background-color: #34495e; padding: 10px 0; position: relative; min-height: 50px; }
+        nav { background-color: #34495e; padding: 10px 0; position: relative; min-height: 50px; z-index: 100; }
         .nav-list { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; }
         .nav-list li { margin: 0 15px; }
         .nav-list a { color: var(--white); text-decoration: none; font-weight: 500; padding: 5px 0; transition: color 0.3s ease; }
         .nav-list a:hover { color: var(--secondary-color); }
         
-        /* Mobile Menu Toggle - FIX 1: Fixed Top Position */
-        .menu-toggle { 
-            display: none; 
-            background: none; 
-            border: none; 
-            color: #fff;
-            font-size: 1.8em;
-            cursor: pointer; 
-            position: absolute; 
-            right: 20px; 
-            top: 15px; /* Fixed distance from top */
-            /* transform: translateY(-50%); REMOVED to prevent moving when menu opens */
-            z-index: 1002;
-            padding: 5px;
-        }
+        .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.8em; cursor: pointer; position: absolute; right: 20px; top: 15px; z-index: 1002; padding: 5px; }
 
-        /* Hero Section */
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bac.png') no-repeat center center/cover; color: var(--white); text-align: center; padding: 100px 20px; position: relative; }
+        /* Hero Section - FIX: Full Height & Fit */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bac.png') no-repeat center center/cover; 
+            color: var(--white); 
+            text-align: center; 
+            /* Fix: Height adjustment to remove white space and fit screen */
+            min-height: 90vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px; 
+            position: relative; 
+            margin-top: -1px; /* Remove render gap */
+        }
         .hero h2 { font-size: 3.5em; margin-bottom: 15px; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
         .hero p { font-size: 1.5em; margin-bottom: 30px; font-weight: 300; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
         .btn { display: inline-block; background-color: var(--secondary-color); color: var(--white); padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: 600; transition: background-color 0.3s ease, transform 0.2s ease; cursor: pointer; border: none; }
@@ -106,19 +105,40 @@
         .product-actions .btn-whatsapp { background-color: #25d366; }
         .product-actions .btn-whatsapp:hover { background-color: #1da851; }
 
-        /* Testimonials */
-        .testimonials { background-color: var(--primary-color); color: var(--white); }
-        .testimonial-carousel { display: flex; overflow-x: hidden; scroll-snap-type: x mandatory; padding: 20px 0; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: relative; }
-        .testimonial-carousel::-webkit-scrollbar { display: none; }
-        .testimonial-card { flex: 0 0 100%; scroll-snap-align: start; background-color: rgba(255,255,255,0.1); padding: 30px; border-radius: 8px; text-align: center; max-width: 700px; margin: 0 auto; }
-        .testimonial-card p { font-style: italic; margin-bottom: 15px; font-size: 1.1em; }
-        .testimonial-card span { font-weight: 600; }
-        .google-reviews-link { margin-top: 30px; }
+        /* Testimonials - FIX: One review at a time */
+        .testimonials { background-color: var(--primary-color); color: var(--white); position: relative; }
+        .testimonial-carousel { 
+            display: flex; 
+            overflow: hidden; /* Hide overflow to prevent seeing the next one */
+            scroll-behavior: smooth;
+            width: 100%;
+        }
+        .testimonial-card { 
+            flex: 0 0 100%; /* Force 100% width */
+            width: 100%;
+            padding: 40px 20px; 
+            background-color: transparent; /* Clean look */
+            text-align: center; 
+            box-sizing: border-box;
+            transition: transform 0.5s ease-in-out;
+        }
+        .testimonial-content-wrapper {
+            background-color: rgba(255,255,255,0.1); 
+            padding: 30px; 
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .testimonial-card p { font-style: italic; margin-bottom: 15px; font-size: 1.2em; line-height: 1.6; }
+        .testimonial-card span { font-weight: 600; display: block; margin-top: 10px; color: var(--secondary-color); }
+        
+        .carousel-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 20px; pointer-events: none; max-width: 1200px; left: 50%; transform: translate(-50%, -50%); }
+        .carousel-nav button { background-color: rgba(0, 0, 0, 0.3); color: var(--white); border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 1.2em; transition: background-color 0.3s ease; pointer-events: auto; }
+        .carousel-nav button:hover { background-color: var(--secondary-color); }
+        
+        .google-reviews-link { margin-top: 20px; }
         .google-reviews-link a { color: var(--secondary-color); text-decoration: underline; font-weight: 600; }
         .google-reviews-link a:hover { color: var(--white); }
-        .carousel-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 10px; pointer-events: none; }
-        .carousel-nav button { background-color: rgba(0, 0, 0, 0.5); color: var(--white); border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; font-size: 1.5em; transition: background-color 0.3s ease; pointer-events: auto; }
-        .carousel-nav button:hover { background-color: rgba(0, 0, 0, 0.8); }
 
         /* Contact Section */
         .contact-section { background-color: var(--white); }
@@ -140,26 +160,8 @@
         footer a { color: var(--secondary-color); text-decoration: none; }
         footer a:hover { text-decoration: underline; }
 
-        /* Floating WhatsApp - FIX 2: Removed Underline */
-        .whatsapp-float { 
-            position: fixed; 
-            width: 60px; 
-            height: 60px; 
-            bottom: 30px; 
-            right: 30px; 
-            background-color: #25d366; 
-            color: #FFF; 
-            border-radius: 50px; 
-            text-align: center; 
-            font-size: 30px; 
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.3); 
-            z-index: 1000; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            transition: transform 0.2s ease;
-            text-decoration: none !important; /* Forces no underline */
-        }
+        /* Floating WhatsApp */
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease; text-decoration: none !important; }
         .whatsapp-float:hover { transform: scale(1.05); text-decoration: none !important; }
         .whatsapp-float i { color: var(--white); }
 
@@ -172,29 +174,34 @@
             .header-content { flex-direction: column; text-align: center; padding: 10px 0; }
             .logo { flex-direction: column; margin-bottom: 5px; }
             .logo img { height: 40px; margin-right: 0; margin-bottom: 5px; }
-            .logo h1 { font-size: 1.4em; text-align: center; line-height: 1.2; }
             .contact-info { margin-top: 5px; text-align: center; font-size: 0.8em; }
-            .contact-info a { display: block; margin: 3px 0; }
-            
-            /* Toggle Button Logic */
             .menu-toggle { display: block; }
             .nav-list { display: none; flex-direction: column; align-items: center; width: 100%; padding-top: 10px; background-color: #34495e; }
             .nav-list.active { display: flex; }
-            .nav-list li { margin: 10px 0; width: 100%; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
-            
             .hero h2 { font-size: 2.5em; }
             .hero p { font-size: 1.2em; }
-            
-            /* 300px Fixes */
             .why-item, .about-image, .about-text { width: 100%; min-width: auto; } 
             .product-grid { grid-template-columns: 1fr; }
             .contact-grid { grid-template-columns: 1fr; }
-            .contact-info-block { margin-top: 40px; }
             .about-content { flex-direction: column; }
+            .carousel-nav { padding: 0 5px; }
+        }
+
+        /* FIX: 300px Small Screen Specifics */
+        @media (max-width: 350px) {
+            .container { padding: 0 10px; }
+            .logo h1 { font-size: 1.2em; }
+            .hero { padding: 60px 10px; min-height: 80vh; }
+            .hero h2 { font-size: 2em; }
+            .hero p { font-size: 1em; }
+            .section h3 { font-size: 1.8em; }
+            .why-item, .feature-item, .product-card { width: 100%; min-width: 0; } /* Ensure no overflow */
+            .testimonial-content-wrapper { padding: 15px; }
+            .testimonial-card p { font-size: 1em; }
             .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
-            
-            /* Adjust padding for very small screens */
-            .container { padding: 0 15px; }
+            #open-cart-btn { width: 50px; height: 50px; bottom: 80px; right: 20px; font-size: 20px; }
+            .carousel-nav button { padding: 10px; font-size: 1em; }
+            #cart-sidebar { width: 100%; right: -100%; }
         }
     </style>
 </head>
@@ -296,7 +303,6 @@
             </div>
         </section>
 
-        <!-- New Features Section -->
         <section id="features" class="section features">
             <div class="container">
                 <h3>Our Strengths & Values</h3>
@@ -342,28 +348,39 @@
             <div class="container" style="position: relative;">
                 <h3>What Our Customers Say</h3>
                 <p>Hear directly from those who have experienced the Sri Siripathi difference. Their satisfaction is our greatest reward.</p>
-                <div class="testimonial-carousel">
+                
+                <div class="testimonial-carousel" id="reviewCarousel">
                     <div class="testimonial-card">
-                        <p>"Absolutely stunning furniture! The quality is exceptional, and the customer service was fantastic from start to finish. Highly recommend Sri Siripathi Furnishers."</p>
-                        <span>- Imali P. (Colombo)</span>
+                        <div class="testimonial-content-wrapper">
+                            <p>"Absolutely stunning furniture! The quality is exceptional, and the customer service was fantastic from start to finish. Highly recommend Sri Siripathi Furnishers."</p>
+                            <span>- Imali P. (Colombo)</span>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <p>"We bought our entire living room set from here. The craftsmanship is beautiful, and the pieces feel incredibly solid. A true investment for our home."</p>
-                        <span>- Tharindu K. (Kandy)</span>
+                        <div class="testimonial-content-wrapper">
+                            <p>"We bought our entire living room set from here. The craftsmanship is beautiful, and the pieces feel incredibly solid. A true investment for our home."</p>
+                            <span>- Tharindu K. (Kandy)</span>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <p>"Menan Fernando and his team truly understand quality. Every detail is perfect. Our new dining table is the highlight of our home!"</p>
-                        <span>- N. Perera (Galle)</span>
+                        <div class="testimonial-content-wrapper">
+                            <p>"Menan Fernando and his team truly understand quality. Every detail is perfect. Our new dining table is the highlight of our home!"</p>
+                            <span>- N. Perera (Galle)</span>
+                        </div>
                     </div>
                     <div class="testimonial-card">
-                        <p>"From design consultation to delivery, the process was seamless. The custom bedroom set they made for us exceeds all expectations. Thank you!"</p>
-                        <span>- S. Wijesinghe (Negombo)</span>
+                        <div class="testimonial-content-wrapper">
+                            <p>"From design consultation to delivery, the process was seamless. The custom bedroom set they made for us exceeds all expectations. Thank you!"</p>
+                            <span>- S. Wijesinghe (Negombo)</span>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="carousel-nav">
                     <button id="prevReview"><i class="fas fa-chevron-left"></i></button>
                     <button id="nextReview"><i class="fas fa-chevron-right"></i></button>
                 </div>
+                
                 <div class="google-reviews-link">
                     <p>Read all our authentic customer experiences on <a href="https://www.google.com/search?q=Sri+Siripathi+Furniture+Reviews" target="_blank">Google <i class="fab fa-google"></i></a></p>
                 </div>
@@ -446,7 +463,6 @@
 
 
     <script type="module">
-        // Import Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
@@ -463,13 +479,12 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Fetch and Display Products
         const productGrid = document.getElementById('productGrid');
         
         async function loadProducts() {
             try {
                 const querySnapshot = await getDocs(collection(db, "products"));
-                productGrid.innerHTML = ''; // Clear loading text
+                productGrid.innerHTML = ''; 
                 
                 querySnapshot.forEach((doc) => {
                     const data = doc.data();
@@ -478,7 +493,6 @@
                     
                     const card = document.createElement('div');
                     card.className = 'product-card';
-                    // Enabled "Add to Cart" for ALL products
                     card.innerHTML = `
                         <img src="${data.imageUrl}" alt="${data.name}">
                         <div class="product-info">
@@ -493,10 +507,7 @@
                     `;
                     productGrid.appendChild(card);
                 });
-
-                // Re-attach listeners for new dynamic buttons
                 attachCartListeners();
-
             } catch (error) {
                 console.error("Error loading products:", error);
                 productGrid.innerHTML = '<p>Currently updating our catalog. Please check back soon.</p>';
@@ -505,11 +516,6 @@
 
         loadProducts();
 
-        // -----------------------
-        // Existing Scripts Adapted
-        // -----------------------
-
-        // Mobile Menu Toggle Logic
         const menuToggle = document.getElementById('menuToggle');
         const navList = document.getElementById('navList');
 
@@ -517,7 +523,6 @@
             navList.classList.toggle('active');
         });
 
-        // Close menu when a link is clicked
         document.querySelectorAll('.nav-list a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
@@ -559,7 +564,6 @@
         const cartTotalSpan = document.getElementById('cart-total');
         const checkoutWhatsappBtn = document.getElementById('checkout-whatsapp');
 
-        // Make functions global so they can be called from HTML onclick if needed
         window.removeFromCart = function(index) {
             cart.splice(index, 1);
             updateCartDisplay();
@@ -644,42 +648,43 @@
             cartSidebar.style.right = '-350px';
         });
 
-        // Testimonial Logic
-        const testimonialCarousel = document.querySelector('.testimonial-carousel');
-        const prevReviewBtn = document.getElementById('prevReview');
-        const nextReviewBtn = document.getElementById('nextReview');
+        // Fixed Testimonial Carousel Logic
+        const carousel = document.getElementById('reviewCarousel');
+        const prevBtn = document.getElementById('prevReview');
+        const nextBtn = document.getElementById('nextReview');
         let currentReviewIndex = 0;
-        let autoSlideInterval;
+        let slideInterval;
 
-        function showReview(index) {
-            if(testimonialCarousel.children.length > 0) {
-                const reviewWidth = testimonialCarousel.children[0].offsetWidth; 
-                testimonialCarousel.scrollTo({ left: reviewWidth * index, behavior: 'smooth' });
+        function updateCarousel() {
+            if(carousel) {
+                carousel.scrollLeft = carousel.offsetWidth * currentReviewIndex;
             }
         }
+
         function nextReview() {
-            currentReviewIndex = (currentReviewIndex < testimonialCarousel.children.length - 1) ? currentReviewIndex + 1 : 0;
-            showReview(currentReviewIndex);
+            const totalSlides = carousel.children.length;
+            currentReviewIndex = (currentReviewIndex + 1) % totalSlides;
+            updateCarousel();
         }
-        function startAutoSlide() { autoSlideInterval = setInterval(nextReview, 5000); }
-        function stopAutoSlide() { clearInterval(autoSlideInterval); }
 
-        prevReviewBtn.addEventListener('click', () => {
-            stopAutoSlide();
-            currentReviewIndex = (currentReviewIndex > 0) ? currentReviewIndex - 1 : testimonialCarousel.children.length - 1;
-            showReview(currentReviewIndex);
-            startAutoSlide();
-        });
+        function prevReview() {
+            const totalSlides = carousel.children.length;
+            currentReviewIndex = (currentReviewIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
 
-        nextReviewBtn.addEventListener('click', () => {
-            stopAutoSlide();
-            nextReview();
-            startAutoSlide();
-        });
+        function startSlide() { slideInterval = setInterval(nextReview, 5000); }
+        function stopSlide() { clearInterval(slideInterval); }
 
-        startAutoSlide();
+        if(prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => { stopSlide(); prevReview(); startSlide(); });
+            nextBtn.addEventListener('click', () => { stopSlide(); nextReview(); startSlide(); });
+        }
+        
+        startSlide();
+        
+        // Handle window resize to realign carousel
+        window.addEventListener('resize', updateCarousel);
     </script>
 </body>
 </html>
-
-
