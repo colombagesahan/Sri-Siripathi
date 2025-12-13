@@ -12,7 +12,7 @@
         /* Login Overlay */
         #login-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #2c3e50; display: flex; justify-content: center; align-items: center; z-index: 1000; }
         .login-box { background: white; padding: 40px; border-radius: 8px; text-align: center; width: 300px; }
-        .login-box input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+        .login-box input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
         .btn { background: #e67e22; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-weight: bold; }
         .btn:hover { background: #d35400; }
         .btn-red { background: #c0392b; }
@@ -40,9 +40,11 @@
     <div id="login-overlay">
         <div class="login-box">
             <h3>Admin Login</h3>
-            <input type="password" id="adminPass" placeholder="Enter Password">
+            <!-- Added Email Field -->
+            <input type="email" id="adminEmail" placeholder="Enter Email" required>
+            <input type="password" id="adminPass" placeholder="Enter Password" required>
             <button class="btn" onclick="checkLogin()">Login</button>
-            <p id="loginError" style="color: red; display: none; margin-top: 10px;">Incorrect Password</p>
+            <p id="loginError" style="color: red; display: none; margin-top: 10px;">Incorrect Credentials</p>
         </div>
     </div>
 
@@ -109,10 +111,13 @@
         const db = getFirestore(app);
         const storage = getStorage(app);
 
-        // Login Function
+        // Updated Login Function to Check Email and Password
         window.checkLogin = function() {
-            const pass = document.getElementById('adminPass').value;
-            if (pass === '789123456') {
+            const email = document.getElementById('adminEmail').value.trim();
+            const pass = document.getElementById('adminPass').value.trim();
+            
+            // Checking specific credentials as requested
+            if (email === 'admin602siripathi@gmail.com' && pass === '789621954') {
                 document.getElementById('login-overlay').style.display = 'none';
                 document.getElementById('dashboard').style.display = 'block';
                 loadAdminProducts();
@@ -147,7 +152,7 @@
                 await uploadBytes(storageRef, imageFile);
                 const imageUrl = await getDownloadURL(storageRef);
 
-                // 2. Save to Firestore
+                // 2. Save to Firestore (Using 'products' collection as in original code)
                 await addDoc(collection(db, "products"), {
                     name: name,
                     description: desc,
