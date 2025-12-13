@@ -40,7 +40,7 @@
         .nav-list a { color: var(--white); text-decoration: none; font-weight: 500; padding: 5px 0; transition: color 0.3s ease; }
         .nav-list a:hover { color: var(--secondary-color); }
         
-        /* FIX: Toggle Button Position - Fixed to top to prevent floating in middle */
+        /* FIX 2: Mobile Toggle Button Alignment - Centered Vertically */
         .menu-toggle { 
             display: none; 
             background: none; 
@@ -49,9 +49,9 @@
             font-size: 1.8em;
             cursor: pointer; 
             position: absolute; 
-            right: 50%; 
-            /* Fixed pixel value ensures it stays in the bar and doesn't move when menu expands */
-            top: 15px; 
+            right: 20px; 
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for perfect center */
             z-index: 1002;
             padding: 5px;
         }
@@ -188,13 +188,13 @@
             .logo { flex-direction: column; margin-bottom: 5px; }
             .logo img { height: 40px; margin-right: 0; margin-bottom: 5px; }
             
-            /* FIX 1: Email Icon & Contact Info Alignment in Mobile - Centered Flexbox */
+            /* FIX 1: Email Icon & Contact Info Alignment in Mobile */
             .contact-info { margin-top: 5px; text-align: center; font-size: 0.8em; }
             .contact-info a { 
-                display: flex; /* Changed from block to flex */
-                align-items: center; /* Vertical Center */
-                justify-content: center; /* Horizontal Center */
-                gap: 5px; /* Space between icon and text */
+                display: inline-flex; /* Fixes icon breaking away from text */
+                align-items: center; 
+                justify-content: center;
+                gap: 8px; /* Adds space between icon and text */
                 margin: 5px 0; 
             }
             .contact-info span { display: block; margin-bottom: 3px; }
@@ -246,6 +246,7 @@
 
     <nav>
         <div class="container">
+            <!-- Mobile Toggle -->
             <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             <ul class="nav-list" id="navList">
                 <li><a href="#about">About Us</a></li>
@@ -711,4 +712,3 @@
     </script>
 </body>
 </html>
-
