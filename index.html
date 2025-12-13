@@ -40,14 +40,27 @@
         .nav-list a { color: var(--white); text-decoration: none; font-weight: 500; padding: 5px 0; transition: color 0.3s ease; }
         .nav-list a:hover { color: var(--secondary-color); }
         
-        .menu-toggle { display: none; background: none; border: none; color: #fff; font-size: 1.8em; cursor: pointer; position: absolute; right: 20px; top: 15px; z-index: 1002; padding: 5px; }
+        /* FIX 2: Mobile Toggle Button Alignment - Centered Vertically */
+        .menu-toggle { 
+            display: none; 
+            background: none; 
+            border: none; 
+            color: #fff;
+            font-size: 1.8em;
+            cursor: pointer; 
+            position: absolute; 
+            right: 20px; 
+            top: 50%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust for perfect center */
+            z-index: 1002;
+            padding: 5px;
+        }
 
-        /* Hero Section - FIX: Full Height & Fit */
+        /* Hero Section */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bac.png') no-repeat center center/cover; 
             color: var(--white); 
             text-align: center; 
-            /* Fix: Height adjustment to remove white space and fit screen */
             min-height: 90vh; 
             display: flex;
             flex-direction: column;
@@ -55,7 +68,7 @@
             align-items: center;
             padding: 20px; 
             position: relative; 
-            margin-top: -1px; /* Remove render gap */
+            margin-top: -1px; 
         }
         .hero h2 { font-size: 3.5em; margin-bottom: 15px; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
         .hero p { font-size: 1.5em; margin-bottom: 30px; font-weight: 300; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); }
@@ -105,19 +118,19 @@
         .product-actions .btn-whatsapp { background-color: #25d366; }
         .product-actions .btn-whatsapp:hover { background-color: #1da851; }
 
-        /* Testimonials - FIX: One review at a time */
+        /* Testimonials */
         .testimonials { background-color: var(--primary-color); color: var(--white); position: relative; }
         .testimonial-carousel { 
             display: flex; 
-            overflow: hidden; /* Hide overflow to prevent seeing the next one */
+            overflow: hidden; 
             scroll-behavior: smooth;
             width: 100%;
         }
         .testimonial-card { 
-            flex: 0 0 100%; /* Force 100% width */
+            flex: 0 0 100%; 
             width: 100%;
             padding: 40px 20px; 
-            background-color: transparent; /* Clean look */
+            background-color: transparent; 
             text-align: center; 
             box-sizing: border-box;
             transition: transform 0.5s ease-in-out;
@@ -174,7 +187,18 @@
             .header-content { flex-direction: column; text-align: center; padding: 10px 0; }
             .logo { flex-direction: column; margin-bottom: 5px; }
             .logo img { height: 40px; margin-right: 0; margin-bottom: 5px; }
+            
+            /* FIX 1: Email Icon & Contact Info Alignment in Mobile */
             .contact-info { margin-top: 5px; text-align: center; font-size: 0.8em; }
+            .contact-info a { 
+                display: inline-flex; /* Fixes icon breaking away from text */
+                align-items: center; 
+                justify-content: center;
+                gap: 8px; /* Adds space between icon and text */
+                margin: 5px 0; 
+            }
+            .contact-info span { display: block; margin-bottom: 3px; }
+
             .menu-toggle { display: block; }
             .nav-list { display: none; flex-direction: column; align-items: center; width: 100%; padding-top: 10px; background-color: #34495e; }
             .nav-list.active { display: flex; }
@@ -187,7 +211,7 @@
             .carousel-nav { padding: 0 5px; }
         }
 
-        /* FIX: 300px Small Screen Specifics */
+        /* 300px Small Screen Specifics */
         @media (max-width: 350px) {
             .container { padding: 0 10px; }
             .logo h1 { font-size: 1.2em; }
@@ -195,7 +219,7 @@
             .hero h2 { font-size: 2em; }
             .hero p { font-size: 1em; }
             .section h3 { font-size: 1.8em; }
-            .why-item, .feature-item, .product-card { width: 100%; min-width: 0; } /* Ensure no overflow */
+            .why-item, .feature-item, .product-card { width: 100%; min-width: 0; } 
             .testimonial-content-wrapper { padding: 15px; }
             .testimonial-card p { font-size: 1em; }
             .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 25px; }
@@ -222,6 +246,7 @@
 
     <nav>
         <div class="container">
+            <!-- Mobile Toggle -->
             <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
             <ul class="nav-list" id="navList">
                 <li><a href="#about">About Us</a></li>
@@ -686,6 +711,4 @@
         window.addEventListener('resize', updateCarousel);
     </script>
 </body>
-                      </html>
-
-
+</html>
